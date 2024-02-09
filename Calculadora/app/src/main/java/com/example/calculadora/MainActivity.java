@@ -48,6 +48,24 @@ public class MainActivity extends AppCompatActivity {
                         resp, Toast.LENGTH_LONG).show();
             }
         });
+        btn = findViewById(R.id.btnAlmacenamientoConvertir);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                spn = findViewById(R.id.spnAlmacenamientoDe);
+                int de = spn.getSelectedItemPosition();
+
+                spn = findViewById(R.id.spnAlmacenamientoA);
+                int a = spn.getSelectedItemPosition();
+
+                tempVal = findViewById(R.id.txtAlmacenamientoCantidad);
+                double cantidad = Double.parseDouble(tempVal.getText().toString());
+
+                double resp = 1/objConversor.convertir(1, de, a, cantidad);
+                Toast.makeText(getApplicationContext(),"Respuesta: "+
+                        resp, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
 class conversores{
@@ -57,7 +75,7 @@ class conversores{
 
             //Almacenamiento
             {1, 8, 1000*8, Math.pow(1000,2)*8, Math.pow(1000,3)*8, Math.pow(1000,4)*8, Math.pow(1000,5)*8,Math.pow(1000,6)*8,Math.pow(1000,7)*8,
-                    1000*8, Math.pow(1000,2)*8, Math.pow(1000,3)*8, Math.pow(1000,4)*8, Math.pow(1000,5)*8,Math.pow(1000,6)*8,Math.pow(1000,7)*8,}
+                    1024*8, Math.pow(1024,2)*8, Math.pow(1024,3)*8, Math.pow(1024,4)*8, Math.pow(1024,5)*8,Math.pow(1024,6)*8,Math.pow(1024,7)*8,}
     };
     public double convertir(int opcion, int de, int a, double cantidad){
         return valores[opcion][a] / valores[opcion][de] * cantidad;
