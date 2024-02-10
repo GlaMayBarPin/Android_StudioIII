@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         tbh.addTab(tbh.newTabSpec("LONGITUD").setContent(R.id.tabLongitud).setIndicator("LONGITUD", null));
         tbh.addTab(tbh.newTabSpec("ALMACENAMIENTO").setContent(R.id.tabAlmacenamiento).setIndicator("ALMACENAMIENTO", null));
         tbh.addTab(tbh.newTabSpec("MONEDAS").setContent(R.id.tabMonedas).setIndicator("MONEDAS",null));
-
+        tbh.addTab(tbh.newTabSpec("Masa").setContent(R.id.tabMasa).setIndicator("Masa",null));
         btn = findViewById(R.id.btnLongitudConvertir);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +66,24 @@ public class MainActivity extends AppCompatActivity {
                         resp, Toast.LENGTH_LONG).show();
             }
         });
+        btn = findViewById(R.id.btnMonedasConvertir);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                spn = findViewById(R.id.spnMonedasDe);
+                int de = spn.getSelectedItemPosition();
+
+                spn = findViewById(R.id.spnMonedasA);
+                int a = spn.getSelectedItemPosition();
+
+                tempVal = findViewById(R.id.txtMonedasCantidad);
+                double cantidad = Double.parseDouble(tempVal.getText().toString());
+
+                double resp = objConversor.convertir(2, de, a, cantidad);
+                Toast.makeText(getApplicationContext(),"Respuesta: "+
+                        resp, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
 class conversores{
@@ -75,7 +93,9 @@ class conversores{
 
             //Almacenamiento
             {1, 8, 1000*8, Math.pow(1000,2)*8, Math.pow(1000,3)*8, Math.pow(1000,4)*8, Math.pow(1000,5)*8,Math.pow(1000,6)*8,Math.pow(1000,7)*8,
-                    1024*8, Math.pow(1024,2)*8, Math.pow(1024,3)*8, Math.pow(1024,4)*8, Math.pow(1024,5)*8,Math.pow(1024,6)*8,Math.pow(1024,7)*8,}
+                    1024*8, Math.pow(1024,2)*8, Math.pow(1024,3)*8, Math.pow(1024,4)*8, Math.pow(1024,5)*8,Math.pow(1024,6)*8,Math.pow(1024,7)*8,},
+            //Monedas
+            {1,0.93,7.81,17.14,149.27,0.79,24.73,36.78,1.35,3946.75,965.92,830.67,8.76},
     };
     public double convertir(int opcion, int de, int a, double cantidad){
         return valores[opcion][a] / valores[opcion][de] * cantidad;

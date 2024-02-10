@@ -32,15 +32,21 @@
         <item>ZiB</item>
     </string-array>
     <string-array name="spnMonedas">
+        <item>Dolar</item>
         <item>Euro</item>
         <item>Quetzal</item>
         <item>Peso mexicano</item>
-        <item>KiB</item>
-        <item>MiB</item>
-        <item>GiB</item>
-        <item>TiB</item>
-        <item>PiB</item>
-        <item>EiB</item>
-        <item>ZiB</item>
+        <item>Yen</item>
+        <item>Libra esterlina</item>
+        <item>Lempira</item>
+        <item>Córdoba</item>
+        <item>Dolar canadiense</item>
+        <item>Peso colombiano</item>
+        <item>Peso chileno</item>
+        <item>Peso argentino</item>
+        <item>Colon salvadoreño</item>
+    </string-array>
+    <string-array name="spnMasa">
+
     </string-array>
 </resources>

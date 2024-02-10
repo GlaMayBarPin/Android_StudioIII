@@ -152,20 +152,68 @@
                         android:layout_marginLeft="80dp"
                         android:layout_marginTop="35dp" />
                     <Spinner
-                        android:id="@+id/spnAlmacenamientoA"
-                        android:entries="@array/spnAlmacenamiento"
+                        android:id="@+id/spnMonedasA"
+                        android:entries="@array/spnMonedas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="75dp"
                         android:layout_marginLeft="80dp"/>
                     <EditText
-                        android:id="@+id/txtAlmacenamientoCantidad"
+                        android:id="@+id/txtMonedasCantidad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="120dp"
                         android:hint="Cantidad a convertir"/>
                     <Button
-                        android:id="@+id/btnAlmacenamientoConvertir"
+                        android:id="@+id/btnMonedasConvertir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="180dp"
+                        android:text="CONVERTIR"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/tabMasa"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/lblMasadDe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginLeft="40dp"
+                        android:text="DE:" />
+                    <TextView
+                        android:id="@+id/lblMasaA"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="80dp"
+                        android:layout_marginLeft="40dp"
+                        android:text="A:" />
+
+                    <Spinner
+                        android:id="@+id/spnMasaDe"
+                        android:entries="@array/spnMasa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="35dp" />
+                    <Spinner
+                        android:id="@+id/spnMasaA"
+                        android:entries="@array/spnMasa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="75dp"
+                        android:layout_marginLeft="80dp"/>
+                    <EditText
+                        android:id="@+id/txtMasaCantidad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="120dp"
+                        android:hint="Cantidad a convertir"/>
+                    <Button
+                        android:id="@+id/btnMasaConvertir"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="180dp"
