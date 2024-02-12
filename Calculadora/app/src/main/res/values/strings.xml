@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Conversores</string>
+    <string name="cantidad_a_convertir">Cantidad a convertir</string>
     <string-array name="spnLongitud">
         <item>Metros</item>
         <item>Centimetros</item>
@@ -47,6 +48,27 @@
         <item>Colon salvadoreño</item>
     </string-array>
     <string-array name="spnMasa">
-
+        <item>Kilogramos</item>
+        <item>Gramos</item>
+        <item>Miligramos</item>
+        <item>Microgramo</item>
+        <item>Quilate</item>
+        <item>Stone</item>
+        <item>Libras</item>
+        <item>Toneladas</item>
+        <item>Onzas</item>
+        <item>Quintal</item>
+    </string-array>
+    <string-array name="spnTiempo">
+        <item>Hora</item>
+        <item>Minuto</item>
+        <item>Segundo</item>
+        <item>Milisegundo</item>
+        <item>Microsegundo</item>
+        <item>Día</item>
+        <item>Semana</item>
+        <item>Mes</item>
+        <item>Año</item>
+        <item>Década</item>
     </string-array>
 </resources>
