@@ -156,6 +156,27 @@ public class MainActivity extends AppCompatActivity {
                 }catch(Exception e){}
             }
         });
+        btn = findViewById(R.id.btnVolumenConvertir);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try{
+                    spn = findViewById(R.id.spnVolumenDe);
+                    int de = spn.getSelectedItemPosition();
+
+                    spn = findViewById(R.id.spnVolumenA);
+                    int a = spn.getSelectedItemPosition();
+
+                    tempVal = findViewById(R.id.txtVolumenCantidad);
+                    double cantidad = Double.parseDouble(tempVal.getText().toString());
+
+                    double resp = objConversor.convertir(6, de, a, cantidad);
+                    Toast.makeText(getApplicationContext(),"Respuesta: "+
+                            resp, Toast.LENGTH_LONG).show();
+                }catch(Exception e){}
+            }
+        });
     }
 }
 class conversores{
@@ -173,13 +194,13 @@ class conversores{
             {1,1000,1000000,1000000000,5000,0.15747304,2.20462262,0.001,35.273962, 0.01},
 
             //Timepo
-            {1,60,3600,3600000.0,3.600000000,1/24,1/168,1/(30.417*24),1/(24*365),1/(24*365)},
+            {1,60,3600,3600000,3600000000.0,1.0/24.0,1.0/168.0, 1.0/(30.417*24.0),1.0/(24.0*365.0),1/(24.0*3650.0)},
 
             //Transferencia_de_datos
             {1, 1000000,125000,1000,125, 0.125, 0.001, 0.000125, 0.000125, 0.000000125},
 
             //Volumen
-
+            {1,4,8,128,256,768,3785.41,3.78541,15.7725, 0.00378541},
     };
     public double convertir(int opcion, int de, int a, double cantidad){
         return valores[opcion][a] / valores[opcion][de] * cantidad;
