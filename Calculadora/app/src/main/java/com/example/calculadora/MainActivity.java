@@ -2,6 +2,7 @@ package com.example.calculadora;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn;
     Spinner spn;
     conversores objConversor = new conversores();
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         tbh.addTab(tbh.newTabSpec("Masa").setContent(R.id.tabMasa).setIndicator("Masa",null));
         tbh.addTab(tbh.newTabSpec("Tiempo").setContent(R.id.tabTiempo).setIndicator("Tiempo",null));
         tbh.addTab(tbh.newTabSpec("Transferencia_de_datos").setContent(R.id.tabTransferencia_de_datos).setIndicator("Transferencia_de_datos",null));
+        tbh.addTab(tbh.newTabSpec("Volumen").setContent(R.id.tabVolumen).setIndicator("Volumen",null));
         btn = findViewById(R.id.btnLongitudConvertir);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,19 +141,19 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 try{
-                spn = findViewById(R.id.spnTransferencia_de_datosDe);
-                int de = spn.getSelectedItemPosition();
+                    spn = findViewById(R.id.spnTransferencia_de_datosDe);
+                    int de = spn.getSelectedItemPosition();
 
-                spn = findViewById(R.id.spnTransferencia_de_datosA);
-                int a = spn.getSelectedItemPosition();
+                    spn = findViewById(R.id.spnTransferencia_de_datosA);
+                    int a = spn.getSelectedItemPosition();
 
-                tempVal = findViewById(R.id.txtTransferencia_de_datosCantidad);
-                double cantidad = Double.parseDouble(tempVal.getText().toString());
+                    tempVal = findViewById(R.id.txtTransferencia_de_datosCantidad);
+                    double cantidad = Double.parseDouble(tempVal.getText().toString());
 
-                double resp = objConversor.convertir(5, de, a, cantidad);
-                Toast.makeText(getApplicationContext(),"Respuesta: "+
-                        resp, Toast.LENGTH_LONG).show();
-            }catch(Exception e){}
+                    double resp = objConversor.convertir(5, de, a, cantidad);
+                    Toast.makeText(getApplicationContext(),"Respuesta: "+
+                            resp, Toast.LENGTH_LONG).show();
+                }catch(Exception e){}
             }
         });
     }
@@ -165,12 +168,18 @@ class conversores{
                     1024 * 8, Math.pow(1024, 2) * 8, Math.pow(1024, 3) * 8, Math.pow(1024, 4) * 8, Math.pow(1024, 5) * 8, Math.pow(1024, 6) * 8, Math.pow(1024, 7) * 8,},
             //Monedas
             {1, 0.93, 7.81, 17.14, 149.27, 0.79, 24.73, 36.78, 1.35, 3946.75, 965.92, 830.67, 8.76},
+
             //Masa
             {1,1000,1000000,1000000000,5000,0.15747304,2.20462262,0.001,35.273962, 0.01},
+
             //Timepo
             {1,60,3600,3600000.0,3.600000000,1/24,1/168,1/(30.417*24),1/(24*365),1/(24*365)},
+
             //Transferencia_de_datos
             {1, 1000000,125000,1000,125, 0.125, 0.001, 0.000125, 0.000125, 0.000000125},
+
+            //Volumen
+
     };
     public double convertir(int opcion, int de, int a, double cantidad){
         return valores[opcion][a] / valores[opcion][de] * cantidad;
