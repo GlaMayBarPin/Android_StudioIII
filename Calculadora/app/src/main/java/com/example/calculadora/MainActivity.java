@@ -31,10 +31,12 @@ public class MainActivity extends AppCompatActivity {
         tbh.addTab(tbh.newTabSpec("MONEDAS").setContent(R.id.tabMonedas).setIndicator("MONEDAS",null));
         tbh.addTab(tbh.newTabSpec("Masa").setContent(R.id.tabMasa).setIndicator("Masa",null));
         tbh.addTab(tbh.newTabSpec("Tiempo").setContent(R.id.tabTiempo).setIndicator("Tiempo",null));
+        tbh.addTab(tbh.newTabSpec("Transferencia_de_datos").setContent(R.id.tabTransferencia_de_datos).setIndicator("Transferencia_de_datos",null));
         btn = findViewById(R.id.btnLongitudConvertir);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try{
                 spn = findViewById(R.id.spnLongitudDe);
                 int de = spn.getSelectedItemPosition();
 
@@ -47,12 +49,14 @@ public class MainActivity extends AppCompatActivity {
                 double resp = objConversor.convertir(0, de, a, cantidad);
                 Toast.makeText(getApplicationContext(),"Respuesta: "+
                         resp, Toast.LENGTH_LONG).show();
+                }catch(Exception e){}
             }
         });
         btn = findViewById(R.id.btnAlmacenamientoConvertir);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try{
                 spn = findViewById(R.id.spnAlmacenamientoDe);
                 int de = spn.getSelectedItemPosition();
 
@@ -65,12 +69,14 @@ public class MainActivity extends AppCompatActivity {
                 double resp = 1/objConversor.convertir(1, de, a, cantidad);
                 Toast.makeText(getApplicationContext(),"Respuesta: "+
                         resp, Toast.LENGTH_LONG).show();
+                }catch(Exception e){}
             }
         });
         btn = findViewById(R.id.btnMonedasConvertir);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try{
                 spn = findViewById(R.id.spnMonedasDe);
                 int de = spn.getSelectedItemPosition();
 
@@ -83,12 +89,14 @@ public class MainActivity extends AppCompatActivity {
                 double resp = objConversor.convertir(2, de, a, cantidad);
                 Toast.makeText(getApplicationContext(),"Respuesta: "+
                         resp, Toast.LENGTH_LONG).show();
+                }catch(Exception e){}
             }
         });
         btn = findViewById(R.id.btnMasaConvertir);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try{
                 spn = findViewById(R.id.spnMasaDe);
                 int de = spn.getSelectedItemPosition();
 
@@ -101,12 +109,14 @@ public class MainActivity extends AppCompatActivity {
                 double resp = objConversor.convertir(3, de, a, cantidad);
                 Toast.makeText(getApplicationContext(),"Respuesta: "+
                         resp, Toast.LENGTH_LONG).show();
+                }catch(Exception e){}
             }
         });
         btn = findViewById(R.id.btnTiempoConvertir);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try{
                 spn = findViewById(R.id.spnTiempoDe);
                 int de = spn.getSelectedItemPosition();
 
@@ -119,6 +129,28 @@ public class MainActivity extends AppCompatActivity {
                 double resp = objConversor.convertir(4, de, a, cantidad);
                 Toast.makeText(getApplicationContext(),"Respuesta: "+
                         resp, Toast.LENGTH_LONG).show();
+                }catch(Exception e){}
+            }
+        });
+        btn = findViewById(R.id.btnTransferencia_de_datosConvertir);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try{
+                spn = findViewById(R.id.spnTransferencia_de_datosDe);
+                int de = spn.getSelectedItemPosition();
+
+                spn = findViewById(R.id.spnTransferencia_de_datosA);
+                int a = spn.getSelectedItemPosition();
+
+                tempVal = findViewById(R.id.txtTransferencia_de_datosCantidad);
+                double cantidad = Double.parseDouble(tempVal.getText().toString());
+
+                double resp = objConversor.convertir(5, de, a, cantidad);
+                Toast.makeText(getApplicationContext(),"Respuesta: "+
+                        resp, Toast.LENGTH_LONG).show();
+            }catch(Exception e){}
             }
         });
     }
@@ -136,7 +168,9 @@ class conversores{
             //Masa
             {1,1000,1000000,1000000000,5000,0.15747304,2.20462262,0.001,35.273962, 0.01},
             //Timepo
-            {1,60,3600,3.600000,3.600000000,0.0416667,0.00595238,0.00136986,0.000114155,0.0000114155}
+            {1,60,3600,3600000.0,3.600000000,1/24,1/168,1/(30.417*24),1/(24*365),1/(24*365)},
+            //Transferencia_de_datos
+            {1, 1000000,125000,1000,125, 0.125, 0.001, 0.000125, 0.000125, 0.000000125},
     };
     public double convertir(int opcion, int de, int a, double cantidad){
         return valores[opcion][a] / valores[opcion][de] * cantidad;
