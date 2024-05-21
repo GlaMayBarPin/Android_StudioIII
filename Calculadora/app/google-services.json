@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "315566048144",
+    "project_id": "techno-store-3128e",
+    "storage_bucket": "techno-store-3128e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315566048144:android:a6731126e446e3936be915",
+        "android_client_info": {
+          "package_name": "com.example.calculadora"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEbQn1d2x2eY-sYiiX6dmkSqljzGfemE8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
