@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <iten>
-     <shape>
-       <solid android:color="#346D39"></solid>
-        <padding android:botton="2dp"
-                 android:left="5dp"
-                 android:rignt= "2dp"
-                 android:top="2dp"/>
-        <cornrs android:topRightredius="20dp"
-                android:bottomleftRadius="20dp"
-                android:bottonRightRadivs="20dp"/>
-    </shape>
-    </iten>
+    <item>
+        <shape>
+            <solid android:color="#346D39"></solid>
+            <padding android:bottom="2dp"
+                android:left="5dp"
+                android:right="5dp"
+                android:top="2dp"/>
+            <corners android:topLeftRadius="20dp"
+                android:bottomLeftRadius="20dp"
+                android:bottomRightRadius="20dp"/>
+        </shape>
+    </item>
 </layer-list>
